@@ -44,7 +44,7 @@
      
 <img src="./Image/RB1.png" style="width:400px;"/> <img src="./Image/RB2.png" style="width:400px;"/>  
 
-Refer to model building techniques here [Remove_background_with_GAN_network](https://github.com/OtaTran241/remove_background_with_GAN_network)  
+Refer to model building techniques here [Remove_background_with_GAN_network](https://github.com/OtaTran241/Remove_Background_With_GAN_Network)  
 
 ## Voice control (Speech to text)
 
