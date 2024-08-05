@@ -1,0 +1,40 @@
+git-lfs/3.5.1 (GitHub; windows amd64; go 1.21.7; git e237bb3a)
+git version 2.45.1.windows.1
+
+$ git-lfs prune
+Prune error: Git can't resolve ref: "HEAD"
+
+Git can't resolve ref: "HEAD"
+
+Current time in UTC:
+2024-06-24 08:22:58
+
+Environment:
+LocalWorkingDir=
+LocalGitDir=
+LocalGitStorageDir=
+LocalMediaDir=lfs\objects
+LocalReferenceDirs=
+TempDir=lfs\tmp
+ConcurrentTransfers=8
+TusTransfers=false
+BasicTransfersOnly=false
+SkipDownloadErrors=false
+FetchRecentAlways=false
+FetchRecentRefsDays=7
+FetchRecentCommitsDays=0
+FetchRecentRefsIncludeRemotes=true
+PruneOffsetDays=3
+PruneVerifyRemoteAlways=false
+PruneVerifyUnreachableAlways=false
+PruneRemoteName=origin
+LfsStorageDir=lfs
+AccessDownload=none
+AccessUpload=none
+DownloadTransfers=basic,lfs-standalone-file,ssh
+UploadTransfers=basic,lfs-standalone-file,ssh
+GIT_EXEC_PATH=D:/Git/mingw64/libexec/git-core
+GIT_LFS_PATH=D:\Git LFS
+
+Client IP addresses:
+2402:800:63a6:d0e2:f87b:188f:5423:3b01 2402:800:63a6:d0e2:45b1:81d1:b56f:49ef fe80::83fa:c8d4:d55f:6215 192.168.1.8
