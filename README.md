@@ -60,7 +60,7 @@ Refer to model building techniques here [Remove_background_with_GAN_network](htt
    - Movie recommendations is a function that suggests based on user requests.  
    - The movie recommendation model is built using linear_kernel in the scikit-learn library, suggesting by calculating similarity between feature vectors of movies provided by the user, or suggesting based on genres and returning the top 10 highest-rated movies.  
   
-   Refer to model building techniques here [Movie recommendation](https://github.com/OtaTran241/MoviesRecommendation)
+   Refer to model building techniques here [Movie recommendation](https://github.com/OtaTran241/Movies_Recommendation)
 
 <img src="./Image/MR_2.png" style="width:400px;"/>
 
