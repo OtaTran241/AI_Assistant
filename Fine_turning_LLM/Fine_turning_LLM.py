@@ -68,7 +68,7 @@ llm = load_llm(model_dir)
 #             Responses should be properly formatted to be easily read.
 #             """
 
-template = """<|im_start|>system\nSử dụng thông tin sau đây để trả lời câu hỏi. Nếu bạn không biết câu trả lời, hãy nói không biết, đừng cố tạo ra câu trả lời\n
+template = """<|im_start|>system\nUse the following information to answer the question. If you don't know the answer, say you don't know, don't try to make one up\n
     {context}<|im_end|>\n<|im_start|>user\n{question}<|im_end|>\n<|im_start|>assistant"""
 
 prompt = creat_prompt(template)
