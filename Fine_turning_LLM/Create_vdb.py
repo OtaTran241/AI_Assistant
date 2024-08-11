@@ -12,7 +12,7 @@ def create_db_from_files(pdf_data_path):
     loader = DirectoryLoader(pdf_data_path, glob="*.pdf", loader_cls = PyPDFLoader, loader_kwargs=pypdf_loader_kwargs)
     documents = loader.load()
 
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=512, chunk_overlap=64)
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=256, chunk_overlap=32)
     docs = text_splitter.split_documents(documents)
 
     # qdrant = Qdrant.from_documents(
