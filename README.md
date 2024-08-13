@@ -65,7 +65,7 @@ Refer to model building techniques here [Remove_background_with_GAN_network](htt
 <img src="./Image/MR_2.png" style="width:400px;"/>
 
 ## Age prediction
-   - Age prediction is a feature that predicting the user's age through voice using RNN.  
+   - Age prediction is a feature that predicting the user's age through voice.  
    - The age prediction model uses a Convolutional Neural Network model built using the TensorFlow library. The model makes predictions by processing the input audio and returns results based on its trained parameters.  
 
    Refer to model building techniques here [Age prediction](https://github.com/OtaTran241/Age_Prediction)
