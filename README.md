@@ -13,6 +13,7 @@
 ## Table of features
 
 ✅ [Chat bot](#Chat-bot)  
+✅ [Extracting information](#Extracting-information)  
 ✅ [Remove background from image](#Remove-background-from-image)  
 ✅ [Voice control](#Voice-control-(Speech-to-text))  
 ✅ [Movie recommendations](#Movie-recommendations)  
@@ -24,12 +25,6 @@
 
 ## Chat bot
 
-   - The application utilizes the LLM (llama 2) model and a RAG technique to enhance LLM's knowledge with additional data.  
-   - You can switch to LLM answering mode using a toggle button in the top right corner.  
-   - Due to limited data, the model currently answers only specific fields available in the data (current data pertains to Python bugs).  
-     
-<img src="./Image/LLM1.png" style="width:400px;"/> <img src="./Image/LLM2.png" style="width:420px;"/>
-
    - However, you can use the ANN answering mode for clearer responses.  
       For example: What can you do?, Who are you?, ...  
    - Particularly, it can answer medical questions  
@@ -37,6 +32,14 @@
    - Due to the limited training data of the model, the data will be updated to cover more fields and areas in the future.
 
 <img src="./Image/Chat.png" style="width:400px;"/>
+
+## Extracting information
+
+   - The application utilizes the LLM (llama 2) model and a RAG technique to enhance LLM's knowledge with additional data.  
+   - You can switch to LLM answering mode using a toggle button in the top right corner.  
+   - Due to limited data, the model currently answers only specific fields available in the data (current data pertains to Python bugs).  
+     
+<img src="./Image/LLM1.png" style="width:400px;"/> <img src="./Image/LLM2.png" style="width:420px;"/>
 
 ## Remove background from image
 
@@ -65,7 +68,7 @@ Refer to model building techniques here [Remove_background_with_GAN_network](htt
 <img src="./Image/MR_2.png" style="width:400px;"/>
 
 ## Age prediction
-   - Age prediction is a feature that predicting the user's age through voice.  
+   - Age prediction is a feature that predicting the user's age through voice using CNN.  
    - The age prediction model uses a Convolutional Neural Network model built using the TensorFlow library. The model makes predictions by processing the input audio and returns results based on its trained parameters.  
 
    Refer to model building techniques here [Age prediction](https://github.com/OtaTran241/Age_Prediction)
