@@ -8,9 +8,7 @@ from transformers import pipeline
 import ChatAI as ca
 import MoviesRecomment as mr
 import AgePredict as ap
-import sys
-sys.path.append('Fine_turning_LLM')
-import Fine_turning_LLM as llm
+import RAG.LLM_RAG as lr
 import psutil
 import subprocess
 import RemoveBackground as rb
@@ -250,7 +248,7 @@ class AIAssistantApp:
     
     def get_chatbot_response(self, input_text, stage):
         if self.Amode:
-            res = llm.get_response(input_text)
+            res = lr.get_response(input_text)
             self.chat_log.delete("end-2l", "end-1l")
             self.add_text(f"Bot: {res}", "bot")
             self.entry.config(state=tk.NORMAL)

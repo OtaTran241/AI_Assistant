@@ -22,7 +22,7 @@
    "context_set": ""
 },
  {
-   "tag": "goodbye"
+   "tag": "goodbye",
    "patterns": [
       "cya",
       "see you",
@@ -757,6 +757,6 @@
       "HODs differ for each branch, please be more specific like: (HOD it)"
    ],
    "context_set": ""
-},
+}
 ]
 }
