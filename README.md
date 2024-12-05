@@ -23,7 +23,7 @@
 ✅ [Google custom search](#Google-custom-search)  
 ✅ [Some commands](#Some-commands)  
 
-## Chat bot
+## Chat bot (Mode 1)
 
    - However, you can use the ANN answering mode for clearer responses.  
       For example: What can you do?, Who are you?, ...  
@@ -33,7 +33,7 @@
 
 <img src="./Image/Chat.png" style="width:400px;"/>
 
-## Extracting information
+## Chat bot (Mode 2)
 
    - The application utilizes the LLM (llama 2) model and a RAG technique to enhance LLM's knowledge with additional data.  
    - You can switch to LLM answering mode using a toggle button in the top right corner.  
