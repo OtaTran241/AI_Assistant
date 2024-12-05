@@ -12,8 +12,8 @@
 ## **App features**
 ## Table of features
 
-✅ [Chat bot](#Chat-bot)  
-✅ [Extracting information](#Extracting-information)  
+✅ [Chat bot (Mode 1)](#Chat-bot-(Mode-1))  
+✅ [Chat bot (Mode 2)](#Chat-bot-(Mode-2))  
 ✅ [Remove background from image](#Remove-background-from-image)  
 ✅ [Voice control](#Voice-control-(Speech-to-text))  
 ✅ [Movie recommendations](#Movie-recommendations)  
