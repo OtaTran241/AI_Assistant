@@ -15,7 +15,7 @@
 ✅ [Chat bot (Mode 1)](#Chat-bot-(Mode-1))  
 ✅ [Chat bot (Mode 2)](#Chat-bot-(Mode-2))  
 ✅ [Remove background from image](#Remove-background-from-image)  
-✅ [Voice control](#Voice-control-(Speech-to-text))  
+✅ [Voice control (Speech to text)](#Voice-control-(Speech-to-text))  
 ✅ [Movie recommendations](#Movie-recommendations)  
 ✅ [Age prediction](#Age-prediction)  
 ✅ [Respond with voice](#Respond-with-voice-(text-to-speech))  
