@@ -22,6 +22,8 @@
 ✅ [Open and close application](#Open-and-close-application)  
 ✅ [Google custom search](#Google-custom-search)  
 ✅ [Some commands](#Some-commands)  
+✅ [Usage](#Usage)  
+✅ [Contributing](#Contributing)  
 
 ## Chat bot (Mode 1)
 
@@ -152,4 +154,10 @@ You can refer to how i built this model [Remove_background_with_GAN_network](htt
 
 #### Install the requirements.txt file.
 
-   - Finally, you need to install the necessary libraries using the command ``` pip install -r requirements.txt ```  
+   - Finally, you need to install the necessary libraries using the command:
+     ```bash
+     pip install -r requirements.txt
+     ```
+     
+## **Contributing**
+Contributions are welcome! If you have any ideas for improving the model or adding new features, feel free to submit a pull request or send an email to [tranducthuan220401@gmail.com](mailto:tranducthuan220401@gmail.com).
