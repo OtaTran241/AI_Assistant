@@ -5,7 +5,7 @@
    - This application is a chatbot developed by Trần Đức Thuận.  
    - You can interact with the application both by voice and through the chatbox.  
    - The supported languages are English ( Vietnamese with be update soon :3).  
-   - Since this is a personal project, many other interesting features will be updated in the future. Thank you for following the project.
+   - Since this is a personal project, many other interesting features will be updated in the future. Thank you for following the project.  
    🌟 [Usage](#Usage)  
    🌟 [Contributing](#Contributing)  
 
