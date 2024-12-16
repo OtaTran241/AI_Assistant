@@ -6,7 +6,7 @@
    - You can interact with the application both by voice and through the chatbox.  
    - The supported languages are English ( Vietnamese with be update soon :3).  
    - Since this is a personal project, many other interesting features will be updated in the future. Thank you for following the project.  
-🌟 [Usage](#Usage)  
+🌟 [Installation and Usage](#Installation-and-Usage)  
 🌟 [Contributing](#Contributing)  
 
 <img src="./Image/ChatDemo.gif" style="width:400px;"/>
@@ -134,7 +134,7 @@ You can refer to how i built this model [Remove_background_with_GAN_network](htt
 
 <img src="./Image/OP.png" style="width:400px;"/><img src="./Image/CL.png" style="width:400px;"/>
 
-## **Usage**
+## **Installation and Usage**
 
 #### Download file
    - First, to use it, you need to use the command:
