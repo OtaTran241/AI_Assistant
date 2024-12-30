@@ -23,3 +23,6 @@ fastembed
 
 flashrank
 rapidocr-onnxruntime
+
+langchain-google-genai
+python-dotenv

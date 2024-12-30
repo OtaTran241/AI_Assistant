@@ -8,11 +8,10 @@ from transformers import pipeline
 import ChatAI as ca
 import MoviesRecomment as mr
 import AgePredict as ap
-import RAG.LLM_RAG as lr
+import RAG.Agent as Angentic_Rag
 import psutil
 import subprocess
 import RemoveBackground as rb
-
 
 class AIAssistantApp:
     def __init__(self):
@@ -30,7 +29,7 @@ class AIAssistantApp:
         self.canvas = tk.Canvas(self.root, width=220, height=220, bg="black")
         self.canvas.pack()
 
-        self.image_path = "data/ChatAI.png"
+        self.image_path = "datas/ChatAI.png"
         self.image = Image.open(self.image_path)
         self.image = self.image.resize((200, 200),Image.LANCZOS)
         self.photo = ImageTk.PhotoImage(self.image)
@@ -39,8 +38,8 @@ class AIAssistantApp:
         self.label = tk.Label(self.root, text="💤💤", font=("Arial", 9))
         self.label.pack()
 
-        self.tb_on_path = "data/tb_on.png"
-        self.tb_off_path = "data/tb_off.png"
+        self.tb_on_path = "datas/tb_on.png"
+        self.tb_off_path = "datas/tb_off.png"
 
         self.on = Image.open(self.tb_on_path)
         self.on = ImageTk.PhotoImage(self.on.resize((65, 30),Image.LANCZOS))
@@ -80,7 +79,7 @@ class AIAssistantApp:
         self.entry.pack(in_=self.entry_frame, side=tk.LEFT, fill=tk.X, expand=True)
         self.entry.bind("<Return>", self.handle_input)
 
-        self.send_button = tk.Button(self.root, text="Send", anchor=tk.CENTER, command=self.handle_input, state=tk.DISABLED, bg="blue")
+        self.send_button = tk.Button(self.root, text="Send", anchor=tk.CENTER, command=self.handle_input, state=tk.DISABLED, bg="green")
         self.send_button.pack(in_=self.entry_frame, side=tk.LEFT, padx=(5, 10), pady=(5, 5))
 
         self.entry.bind("<KeyRelease>", lambda event: self.check_send_button_state())
@@ -248,7 +247,7 @@ class AIAssistantApp:
     
     def get_chatbot_response(self, input_text, stage):
         if self.Amode:
-            res = lr.get_response(input_text)
+            res = Angentic_Rag.get_response(input_text)
             self.chat_log.delete("end-2l", "end-1l")
             self.add_text(f"Bot: {res}", "bot")
             self.entry.config(state=tk.NORMAL)

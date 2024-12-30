@@ -6,12 +6,15 @@ import nltk
 # from nltk.corpus import wordnet
 from bs4 import BeautifulSoup
 from nltk import sent_tokenize
+from dotenv import load_dotenv
 import re
+import os
 from os.path import join, dirname, abspath
 import pickle
 from nltk.stem import WordNetLemmatizer
 from keras.models import load_model
 
+load_dotenv()
 # nltk_data_dir = 'nltk_data'
 # nltk.data.path.append(nltk_data_dir)
 
@@ -175,8 +178,8 @@ def try_get_content(search_results):
             return result['link'] , content
     return None, None
 
-api_key = read_file(join(current_dir, 'API_Key.txt'))
-s_id = read_file(join(current_dir, 'S_id.txt'))
+api_key = os.getenv("Custom_Search_API_Key")
+s_id = os.getenv("Custom_Search_Engine_ID")
 # search_results = google_search(query, api_key, s_id)
 
 # for i, item in enumerate(search_results):

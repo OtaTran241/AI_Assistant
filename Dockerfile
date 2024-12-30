@@ -1,8 +1,8 @@
 FROM python:3.10
 
-WORKDIR /app
+WORKDIR /AI_Assistant
 
-COPY . /app
+COPY . /AI_Assistant
 
 RUN pip install --no-cache-dir -r requirements.txt
 
