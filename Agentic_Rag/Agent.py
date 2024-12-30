@@ -10,7 +10,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.docstore.document import Document
 from langchain_community.vectorstores import FAISS
 from langchain.embeddings import HuggingFaceEmbeddings
-from RAG.Agent_tools import tools
+from Agentic_Rag.Agent_tools import tools
 from dotenv import load_dotenv
 
 load_dotenv()

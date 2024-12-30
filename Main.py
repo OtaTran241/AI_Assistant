@@ -8,7 +8,7 @@ from transformers import pipeline
 import ChatAI as ca
 import MoviesRecomment as mr
 import AgePredict as ap
-import RAG.Agent as Angentic_Rag
+import Agentic_Rag.Agent as Angentic_Rag
 import psutil
 import subprocess
 import RemoveBackground as rb
