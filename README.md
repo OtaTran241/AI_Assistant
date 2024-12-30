@@ -4,7 +4,7 @@
 
    - This application is a chatbot developed by Trần Đức Thuận.  
    - You can interact with the application both by voice and through the chatbox.  
-   - The supported languages are English ( Vietnamese with be update soon :3).  
+   - The supported languages are English and Vietnamese.  
    - Since this is a personal project, many other interesting features will be updated in the future. Thank you for following the project.  
 🌟 [Installation and Usage](#Installation-and-Usage)  
 🌟 [Contributing](#Contributing)  
@@ -37,11 +37,11 @@
 
 ## Chat bot (Mode 2)
 
-   - The application utilizes the LLM (llama 2) model and a RAG technique to enhance LLM's knowledge with additional data.  
+   - This is an Agentic RAG system with the ability to use various tools such as Google Search, checking the weather, etc., and to enhance knowledge based on the documents provided in the folder `datas/Rag_datas`.
+   - In this mode, you can use Vietnamese completely.  
    - You can switch to LLM answering mode using a toggle button in the top right corner.  
-   - Due to limited data, the model currently answers only specific fields available in the data (current data pertains to Python bugs).  
      
-<img src="./Image/LLM1.png" style="width:400px;"/> <img src="./Image/LLM2.png" style="width:420px;"/>
+<img src="./Image/LLM2.png" style="width:400px;"/>
 
 ## Remove background from image
 
@@ -146,7 +146,8 @@ You can refer to how i built this model [Remove_background_with_GAN_network](htt
 
 #### Get API
 
-   - After that, you need to obtain an API key from Google to use the custom search feature. You can find the API key [here](https://programmablesearchengine.google.com/controlpanel/all) and the Custom Search Engine ID [here](https://programmablesearchengine.google.com/controlpanel/all) then save them into two corresponding files named API_Key.txt and S_id.txt.
+   - After that, you need to obtain an API key from Google to use the custom search feature. You can find the API key [here](https://programmablesearchengine.google.com/controlpanel/all) and the Custom Search Engine ID [here](https://programmablesearchengine.google.com/controlpanel/all) then replace it in Custom_Search_API_Key and Custom_Search_Engine_ID in the .env file to use google custom search tool.
+   - And you also need to get the API Key [here](https://ai.google.dev/gemini-api/docs/api-key?hl=vi) then replace it in Google_API_Key in the .env file to use mode 2 (Agentic Rag).
 
 #### Extract file
 
