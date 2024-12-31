@@ -1,5 +1,5 @@
 from typing import Callable, Any, Dict
-import ChatAI as ca
+import Features.ChatAI as ca
 
 class Tool:
     def __init__(self, name: str, arguments: Dict[str, Any], description: str, function: Callable):

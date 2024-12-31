@@ -1,10 +1,9 @@
-from os.path import join, dirname, abspath
+from os.path import join
 import pickle
 import pandas as pd
+from config import root_path
 
-current_dir = dirname(abspath(__file__))
-
-with open(join(current_dir, 'Models/Movies_recommendation_objects.pkl'), 'rb') as file:
+with open(join(root_path, 'Models/Movies_recommendation_objects.pkl'), 'rb') as file:
     linear_sim, indices, df = pickle.load(file)
 
 data_genres = df.iloc[:, 3:].columns

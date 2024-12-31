@@ -9,7 +9,8 @@ from nltk import sent_tokenize
 from dotenv import load_dotenv
 import re
 import os
-from os.path import join, dirname, abspath
+from os.path import join
+from config import root_path
 import pickle
 from nltk.stem import WordNetLemmatizer
 from keras.models import load_model
@@ -25,17 +26,14 @@ load_dotenv()
 lemmatizer = WordNetLemmatizer()
 
 engine = pyttsx3.init()
-
-current_dir = dirname(abspath(__file__))
-
-with open(join(current_dir, 'Models/ChatbotData.pkl'), 'rb') as pickle_file:
+with open(join(root_path, 'Models/ChatbotData.pkl'), 'rb') as pickle_file:
     intents = pickle.load(pickle_file)
 
-words = pickle.load(open(join(current_dir, 'Models/words.pkl'),'rb'))
+words = pickle.load(open(join(root_path, 'Models/words.pkl'),'rb'))
 
-classes = pickle.load(open(join(current_dir, 'Models/classes.pkl'),'rb'))
+classes = pickle.load(open(join(root_path, 'Models/classes.pkl'),'rb'))
 
-model = load_model(join(current_dir, 'Models/chatbot_model.h5'))
+model = load_model(join(root_path, 'Models/chatbot_model.h5'))
 
 def google_search(query, api_key, cse_id, num_results=10):
     url = f"https://www.googleapis.com/customsearch/v1"

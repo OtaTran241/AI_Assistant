@@ -2,8 +2,8 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv2D, Dense, Flatten
 from keras.models import load_model
 import tensorflow as tf
-from os.path import join, dirname, abspath
-
+from os.path import join
+from config import root_path
 
 model = Sequential()
 model.add(Conv2D(1, (3,3), activation='relu', input_shape=(1491, 257,1)))
@@ -14,9 +14,7 @@ model.add(Dense(12, activation='softmax'))
 
 model.compile('Adam', loss='BinaryCrossentropy', metrics=[tf.keras.metrics.Recall(),tf.keras.metrics.Precision()])
 
-current_dir = dirname(abspath(__file__))
-
-model = load_model(join(current_dir, 'Models/VoiceClassification.h5'))
+model = load_model(join(root_path, 'Models/VoiceClassification.h5'))
 
 def get_age(wav):
     wav = preprocess(wav)

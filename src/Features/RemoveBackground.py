@@ -2,15 +2,14 @@ import torch
 import torchvision.transforms as transforms
 from PIL import Image
 import io
-import Gmodel
-from os.path import join, dirname, abspath
+from Features.Gmodel import GModel
+from os.path import join
+from config import root_path
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-generator = Gmodel.GModel().to(device)
+generator = GModel().to(device)
 
-current_dir = dirname(abspath(__file__))
-
-model_path = join(current_dir, 'Models/GANRemoveBackground.pth')
+model_path = join(root_path, 'Models/GANRemoveBackground.pth')
 
 generator.load_state_dict(torch.load(model_path, map_location=device))
 

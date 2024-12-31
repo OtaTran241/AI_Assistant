@@ -5,13 +5,13 @@ import threading
 import pyaudio
 import numpy as np
 from transformers import pipeline
-import ChatAI as ca
-import MoviesRecomment as mr
-import AgePredict as ap
-import Agentic_Rag.Agent as Angentic_Rag
+import Features.ChatAI as ca
+import Features.MoviesRecomment as mr
+import Features.AgePredict as ap
+import Agentic_Rag.Agent as ar
 import psutil
 import subprocess
-import RemoveBackground as rb
+import Features.RemoveBackground as rb
 
 class AIAssistantApp:
     def __init__(self):
@@ -247,7 +247,7 @@ class AIAssistantApp:
     
     def get_chatbot_response(self, input_text, stage):
         if self.Amode:
-            res = Angentic_Rag.get_response(input_text)
+            res = ar.get_response(input_text)
             self.chat_log.delete("end-2l", "end-1l")
             self.add_text(f"Bot: {res}", "bot")
             self.entry.config(state=tk.NORMAL)
