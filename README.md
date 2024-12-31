@@ -147,8 +147,8 @@ You can refer to how i built this model [Remove_background_with_GAN_network](htt
 
 #### Get API
 
-   - After that, you need to obtain an API key from Google to use the custom search feature. You can find the API key [here](https://programmablesearchengine.google.com/controlpanel/all) and the Custom Search Engine ID [here](https://programmablesearchengine.google.com/controlpanel/all) then replace it in Custom_Search_API_Key and Custom_Search_Engine_ID in the .env file to use google custom search tool.
-   - And you also need to get the API Key [here](https://ai.google.dev/gemini-api/docs/api-key?hl=vi) then replace it in Google_API_Key in the .env file to use mode 2 (Agentic Rag).
+   - After that, you need to obtain an API key from Google to use the custom search feature. You can find the API key [here](https://programmablesearchengine.google.com/controlpanel/all) and the Custom Search Engine ID [here](https://programmablesearchengine.google.com/controlpanel/all) then replace it in Custom_Search_API_Key and Custom_Search_Engine_ID in the `.env` file to use google custom search tool.
+   - And you also need to get the API Key [here](https://ai.google.dev/gemini-api/docs/api-key?hl=vi) then replace it in Google_API_Key in the `.env` file to use mode 2 (Agentic Rag).
 
 #### Extract file
 
