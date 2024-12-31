@@ -36,7 +36,7 @@
 <img src="./Image/Chat.png" style="width:400px;"/>
 
 ## Chat bot (Mode 2)
-   - This is an Agentic RAG system with the ability to use various tools such as Google Search, checking the weather, etc., and to enhance knowledge based on the documents provided in the folder `datas/Rag_datas`.
+   - This is an Agentic RAG system capable of utilizing various tools and enhancing knowledge based on private data provided in the datas/Rag_datas folder, following the workflow below:
 
      <img src="./Image/WL.png" style="width:800px;"/>
 
