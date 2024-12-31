@@ -154,11 +154,18 @@ You can refer to how i built this model [Remove_background_with_GAN_network](htt
 
    - After that, simply unzip the models.zip file at the root of the folder.  
 
-#### Install the requirements.txt file.
+#### Install the requirements.txt file
 
    - Finally, you need to install the necessary libraries using the command:
      ```bash
      pip install -r requirements.txt
+     ```
+
+#### Run
+
+   - Once all the installation steps are completed, you can run your own AI assistant by executing the file `Main.py` using the command:
+     ```bash
+     python Main.py
      ```
      
 ## **Contributing**
