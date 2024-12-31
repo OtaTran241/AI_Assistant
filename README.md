@@ -164,7 +164,7 @@ You can refer to how i built this model [Remove_background_with_GAN_network](htt
 
    - Once all the installation steps are completed, you can run your own AI assistant by executing the file `Main.py` using the command:
      ```bash
-     python Main.py
+     python src/Main.py
      ```
      
 ## **Contributing**
