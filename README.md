@@ -31,7 +31,6 @@
       For example: What can you do?, Who are you?, ...  
    - Particularly, it can answer medical questions  
     For example: What to do if my muscle is pulled?, Which medicine to take if I get bleeding?, ...  
-   - Due to the limited training data of the model, the data will be updated to cover more fields and areas in the future.
 
 <img src="./Image/Chat.png" style="width:400px;"/>
 
