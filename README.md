@@ -40,7 +40,7 @@
    - In this mode, you can use Vietnamese completely.  
    - You can switch to LLM answering mode using a toggle button in the top right corner.  
      
-<img src="./Image/LLM2.png" style="width:400px;"/>
+<img src="./Image/LLM2.png" style="width:350px;"/> <img src="./Image/WL.png" style="width:800px;"/>
 
 ## Remove background from image
 
