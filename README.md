@@ -37,11 +37,11 @@
 ## Chat bot (Mode 2)
    - This is an Agentic RAG system capable of utilizing various tools and enhancing knowledge based on private data provided in the `datas/Rag_datas` folder, following the workflow below:
 
-     <img src="./Image/WL.png" style="width:900px;"/>
+<img src="./Image/WL.png" style="width:900px;"/>
 
    - In this mode, you can use Vietnamese completely, switch to LLM answering mode using a toggle button in the top right corner.
 
-     <img src="./Image/LLM2.png" style="width:400px;"/>
+<img src="./Image/LLM2.png" style="width:400px;"/>
 
 ## Remove background from image
 
