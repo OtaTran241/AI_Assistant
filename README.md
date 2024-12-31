@@ -37,7 +37,7 @@
 
 ## Chat bot (Mode 2)
    - This is an Agentic RAG system with the ability to use various tools such as Google Search, checking the weather, etc., and to enhance knowledge based on the documents provided in the folder `datas/Rag_datas`.  
-<img src="./Image/WL.png" style="width:800px;"/>  
+<img src="./Image/WL.png" style="width:800px;"/>
    - In this mode, you can use Vietnamese completely.  
    - You can switch to LLM answering mode using a toggle button in the top right corner.  
      
