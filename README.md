@@ -27,7 +27,7 @@
 
 ## Chat bot (Mode 1)
 
-   - This is a system that uses an ANN model to answer specific questions with clear results, while also conveniently utilizing the accompanying functions.
+   - This is a system that uses an ANN model to answer specific questions with clear results, while also conveniently utilizing the accompanying functions.  
       For example: What can you do?, Who are you?, open Notepad, ...
    - Particularly, it can answer medical questions  
     For example: What to do if my muscle is pulled?, Which medicine to take if I get bleeding?, ...  
