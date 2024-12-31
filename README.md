@@ -6,7 +6,7 @@
    - You can interact with the application both by voice and through the chatbox.  
    - The supported languages are English and Vietnamese.  
    - Since this is a personal project, many other interesting features will be updated in the future. Thank you for following the project.
-   - this will help you [Installation and Usage](#Installation-and-Usage) and if convenient, you can provide feedback at [Contributing](#Contributing)  
+   - This will help you [Installation and Usage](#Installation-and-Usage) and if convenient, you can provide feedback at [Contributing](#Contributing)  
 
 <img src="./Image/ChatDemo.gif" style="width:400px;"/>
 
