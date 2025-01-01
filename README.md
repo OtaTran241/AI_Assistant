@@ -44,11 +44,10 @@
 
 ## Remove background from image
 
-   - You can upload an image, and the application will use a Generator model trained by a GAN network to remove the background from the image. You can then save it using the Save Image button.  
+   - You can upload an image, and the application will use a Generator model trained by a GAN network to remove the background from the image. You can then save it using the Save Image button.
+   - You can refer to how i built this model [Remove_background_with_GAN_network](https://github.com/OtaTran241/Remove_Background_With_GAN)  
      
 <img src="./Image/RB1.png" style="width:400px;"/> <img src="./Image/RB2.png" style="width:400px;"/>  
-
-You can refer to how i built this model [Remove_background_with_GAN_network](https://github.com/OtaTran241/Remove_Background_With_GAN)  
 
 ## Voice control (Speech to text)
 
@@ -62,17 +61,15 @@ You can refer to how i built this model [Remove_background_with_GAN_network](htt
 ## Movie recommendations
 
    - Movie recommendations is a function that suggests based on user requests.  
-   - The movie recommendation model is built using linear_kernel in the scikit-learn library, suggesting by calculating similarity between feature vectors of movies provided by the user, or suggesting based on genres and returning the top 10 highest-rated movies.  
-  
-   You can refer to how i built this model [Movie recommendation](https://github.com/OtaTran241/Movies_Recommendation)
+   - The movie recommendation model is built using linear_kernel in the scikit-learn library, suggesting by calculating similarity between feature vectors of movies provided by the user, or suggesting based on genres and returning the top 10 highest-rated movies.
+   - You can refer to how i built this model [Movie recommendation](https://github.com/OtaTran241/Movies_Recommendation)
 
 <img src="./Image/MR_2.png" style="width:400px;"/>
 
 ## Age prediction
    - Age prediction is a feature that predicting the user's age through voice using CNN.  
-   - The age prediction model uses a Convolutional Neural Network model built using the TensorFlow library. The model makes predictions by processing the input audio and returns results based on its trained parameters.  
-
-   You can refer to how i built this model [Age prediction](https://github.com/OtaTran241/Age_Prediction)
+   - The age prediction model uses a Convolutional Neural Network model built using the TensorFlow library. The model makes predictions by processing the input audio and returns results based on its trained parameters.
+   - You can refer to how i built this model [Age prediction](https://github.com/OtaTran241/Age_Prediction)
 
 <img src="./Image/AP_2.png" style="width:400px;"/>
 
