@@ -9,8 +9,7 @@ import Features.ChatAI as ca
 import Features.MoviesRecomment as mr
 import Features.AgePredict as ap
 import Agentic_Rag.Agent as ar
-import psutil
-import subprocess
+import Features.WindowControl as wc
 import Features.RemoveBackground as rb
 
 class AIAssistantApp:
@@ -229,10 +228,18 @@ class AIAssistantApp:
                 pass
 
         if key == "open":
-            self.open_app(command)
+            state = wc.open_app(command)
+            if state:
+                self.add_text(f"{command} opened successfully.", "bot")
+            else:
+                self.add_text(f"Failed to open {command}", "bot")
 
         if key == "close":
-            self.close_app(command)
+            state = wc.close_app(command)
+            if state:
+                self.add_text(f"{command} closed successfully.", "bot")
+            else:
+                self.add_text(f"Failed to close {command}", "bot")
 
     def check_starting_keyword(self, input_text):
         keywords = ["google search", "open", "close"]
@@ -274,31 +281,7 @@ class AIAssistantApp:
                 self.send_button.config(state=tk.NORMAL)
             if stage == 0:
                 ca.speech(res)
-    
-    def open_app(self, app_name):
-        try:
-            subprocess.Popen(["start", app_name], shell=True)
-            self.add_text(f"{app_name} opened successfully.", "bot")
-        except Exception as e:
-            print(f"Failed to open {app_name}: {str(e)}")
-            self.add_text(f"Failed to open {app_name}", "bot")
 
-    def close_app(self, app_name):
-        closed = False
-        for proc in psutil.process_iter(['pid', 'name']):
-            if app_name in proc.info['name'].lower():
-                pid = proc.info['pid']
-                try:
-                    process = psutil.Process(pid)
-                    process.terminate()
-                    closed = True
-                    self.add_text(f"{app_name} closed successfully.", "bot")
-                except Exception as e:
-                    print(f"Failed to close {app_name}: {str(e)}")
-                    self.add_text(f"Failed to close {app_name}", "bot")
-        if not closed:
-            self.add_text(f"No process found with the name '{app_name}' running.", "bot")
-        
     def listen_for_speech(self):
         while True:
             if self.Qtag == "my age":
