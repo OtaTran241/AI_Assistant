@@ -70,7 +70,7 @@ qa_system_prompt_template = """
     1. Nếu có thông tin từ công cụ hãy sử dụng.
     2. Nếu không, hãy sử dụng thông tin từ dữ liệu.
     3. Sử dụng thông tin từ lịch sử trò chuyện nếu cần.
-    3. Nếu không có thông tin nào, hãy trả lời một cách sáng tạo và rõ ràng kèm chú thích là thông tin ngoài dữ liệu.
+    3. Nếu không có thông tin nào, hãy trả lời một cách chính xác và rõ ràng.
 
     Câu hỏi: {question}
 

@@ -20,17 +20,35 @@ class AIAssistantApp:
         self.CHUNK = 1024
         self.Amode = False
         self.Qtag = ""   
-        audio = pyaudio.PyAudio()
+        self.audio = pyaudio.PyAudio()
+        self.recording = False
+
+        self.init_ui()
+
+        self.stream = self.audio.open(
+            format=self.FORMAT,
+            channels=self.CHANNELS,
+            rate=self.RATE,
+            input=True,
+            frames_per_buffer=self.CHUNK
+        )
+
+        self.recognizer = pipeline("automatic-speech-recognition", model="openai/whisper-base.en")
+
+        threading.Thread(target=self.listen_for_speech, daemon=True).start()
+
+        self.root.mainloop()
+
+    def init_ui(self):
         self.root = tk.Tk()
         self.root.title("AI chat bot")
-        self.recording = False
-        
+
         self.canvas = tk.Canvas(self.root, width=220, height=220, bg="black")
         self.canvas.pack()
 
         self.image_path = "datas/ChatAI.png"
         self.image = Image.open(self.image_path)
-        self.image = self.image.resize((200, 200),Image.LANCZOS)
+        self.image = self.image.resize((200, 200), Image.LANCZOS)
         self.photo = ImageTk.PhotoImage(self.image)
         self.image_on_canvas = self.canvas.create_image(111, 111, anchor=tk.CENTER, image=self.photo)
 
@@ -41,14 +59,14 @@ class AIAssistantApp:
         self.tb_off_path = "datas/tb_off.png"
 
         self.on = Image.open(self.tb_on_path)
-        self.on = ImageTk.PhotoImage(self.on.resize((65, 30),Image.LANCZOS))
+        self.on = ImageTk.PhotoImage(self.on.resize((65, 30), Image.LANCZOS))
         self.off = Image.open(self.tb_off_path)
-        self.off = ImageTk.PhotoImage(self.off.resize((65, 30),Image.LANCZOS))
+        self.off = ImageTk.PhotoImage(self.off.resize((65, 30), Image.LANCZOS))
 
         self.toggle_state = tk.BooleanVar()
         self.toggle_state.set(False)
 
-        self.toggle_button = tk.Button(self.root, image = self.off, command=self.handle_toggle)
+        self.toggle_button = tk.Button(self.root, image=self.off, command=self.handle_toggle)
         self.toggle_button.place(relx=1.0, x=-10, y=10, anchor='ne')
 
         self.toggle_state.trace_add("write", self.handle_toggle)
@@ -64,7 +82,7 @@ class AIAssistantApp:
 
         self.chat_log = tk.Text(self.chat_frame, wrap=tk.WORD, height=20, width=50)
         self.chat_log.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
-        
+
         self.scrollbar = tk.Scrollbar(self.chat_frame, orient=tk.VERTICAL, command=self.chat_log.yview)
         self.scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
         self.chat_log.config(yscrollcommand=self.scrollbar.set)
@@ -73,7 +91,7 @@ class AIAssistantApp:
 
         self.entry_frame = tk.Frame(self.root)
         self.entry_frame.pack(padx=10, pady=(0, 10), fill=tk.X)
-        
+
         self.entry = tk.Entry(self.root, width=61)
         self.entry.pack(in_=self.entry_frame, side=tk.LEFT, fill=tk.X, expand=True)
         self.entry.bind("<Return>", self.handle_input)
@@ -83,22 +101,6 @@ class AIAssistantApp:
 
         self.entry.bind("<KeyRelease>", lambda event: self.check_send_button_state())
 
-        self.audio = pyaudio.PyAudio()
-        
-        self.stream = audio.open(format=self.FORMAT,
-                            channels=self.CHANNELS,
-                            rate=self.RATE,
-                            input=True,
-                            frames_per_buffer=self.CHUNK)
-        
-        
-        # self.recognizer = pipeline("automatic-speech-recognition", model="vinai/PhoWhisper-small")
-        # self.recognizer = pipeline("automatic-speech-recognition", model="facebook/wav2vec2-base-100h")
-        self.recognizer = pipeline("automatic-speech-recognition", model="openai/whisper-base.en")
-
-        threading.Thread(target=self.listen_for_speech, daemon=True).start()
-
-        self.root.mainloop()
 
     def clear_chat_history(self):
         if messagebox.askyesno("Confirm", "Are you sure you want to clear the chat history?"):
