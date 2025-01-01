@@ -141,7 +141,7 @@ You can refer to how i built this model [Remove_background_with_GAN_network](htt
      Git clone https://github.com/OtaTran241/AI_Assistant.git
      cd AI_Assistant
      ```  
-   - Then you need to download the models from this drive [here](https://drive.google.com/file/d/1f6HKnC5SbWOgpd9hjRqUIivIktIdABz3/view?usp=sharing).
+   - Then you need to download the models from this drive [here](https://drive.google.com/file/d/1LPQdwVF1K_06G2woTkkRCYjMD3gIkymZ/view?usp=sharing).
 
 #### Get API
 
