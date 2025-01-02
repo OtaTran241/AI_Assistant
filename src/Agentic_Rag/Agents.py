@@ -11,8 +11,10 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_community.vectorstores import FAISS
 from langchain.embeddings import HuggingFaceEmbeddings
 from Agentic_Rag.Agent_tools import tools
+import Agentic_Rag.prompts as prompts
 from dotenv import load_dotenv
 from config import llm_history_chat_limit
+
 
 load_dotenv()
 
@@ -24,72 +26,6 @@ os.environ["GOOGLE_API_KEY"] = os.getenv("Google_API_Key")
 llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", temperature=0.6, max_output_tokens=512)
 
 chat_history: List[Dict[str, str]] = []
-
-content_summary_prompt_template = """
-    Dựa trên các tài liệu sau đây, hãy tổng hợp thông tin quan trọng liên quan đến câu hỏi của user: {question}
-    Chỉ cần lấy các nội dung liên quan đến câu hỏi của user từ các tài liệu, không thêm thông tin bên ngoài.
-    Nếu không có thông tin liên quan đến câu hỏi của user trong các tài liệu thì trả về không có thông tin.
-
-    Các tài liệu:
-    {documents}
-
-    Các thông tin liên quan đến câu hỏi của user:
-"""
-
-history_summary_prompt_template = """
-    Dựa trên lịch sử cuộc trò chuyện sau, hãy tóm tắt những ý chính của cả user lẫn assistant.
-    Chỉ cần tóm tắt các nội dung quan trọng, không thêm thông tin ngoài những gì được cung cấp.
-
-    Lịch sử cuộc trò chuyện:
-    {history}
-
-    Tóm tắt:
-"""
-
-history_retriever_prompt_template = """
-    Dựa trên lịch sử cuộc trò chuyện sau, hãy lấy ra các thông tin liên quan đến câu hỏi của user: {question}.
-    Chỉ cần lấy các nội dung liên quan, nếu không có thông tin liên quan trong lịch sử trò truyện hãy trả lời lịch sử không có thông tin liên quan đến câu hỏi.
-
-    Lịch sử cuộc trò chuyện:
-    {history}
-
-    Các thông tin liên quan đến câu hỏi của user:
-"""
-
-tool_usage_prompt_template = """
-    Bạn là một Agent thông minh. Nếu câu hỏi của user yêu cầu thông tin có thể lấy từ các tool dưới đây, hãy sử dụng tool tương ứng.
-
-    Danh sách tools:
-    {tools}
-
-    Khi trả lời, chỉ cần trả về : {{"tool_name": "<tên_tool>", "arguments": {{<các arguments>}}}}
-    Nếu không sử dụng tool, trả về: {{}}
-
-    Ví dụ:
-    - "Thời tiết Hồ Chí Minh thế nào?" -> {{"tool_name": "get_weather", "arguments": {{"location": "Hồ Chí Minh"}}}}
-    - "Tính diện tích với cao 20 và dài 30" -> {{"tool_name": "calculate_area", "arguments": {{"width": 30, "height": 20}}}}
-    - "Bạn khỏe không?" -> {{}}
-
-    Câu hỏi của user: {question}
-    Trả lời:
-"""
-
-qa_system_prompt_template = """
-    Bạn là một trợ lý thông minh tên là Toka. Hãy trả lời câu hỏi sau, khi trả lời hãy làm theo thứ tự ưu tiên sau:
-
-    1. Nếu có thông tin từ công cụ hãy sử dụng.
-    2. Nếu không, hãy sử dụng thông tin từ dữ liệu.
-    3. Sử dụng thông tin từ lịch sử trò chuyện nếu cần.
-    3. Nếu không có thông tin nào, hãy trả lời một cách chính xác và rõ ràng.
-
-    Câu hỏi: {question}
-
-    Thông tin từ công cụ: {tool_response}
-    Thông tin từ dữ liệu: {context}
-    Thông tin lịch sử trò chuyện: {chat_history}
-
-    Câu trả lời:
-"""
 
 def retriever_history_thread(user_input, result_holder):
     result_holder["history"] = agent_retriever_chat_history(user_input)
@@ -106,7 +42,7 @@ def agent_summarize_chat_history(history: List[Dict[str, str]]) -> str:
     )
     prompt = PromptTemplate(
         input_variables=["history"],
-        template=history_summary_prompt_template
+        template=prompts.history_summary_prompt_template
     )
     chain = LLMChain(llm=llm, prompt=prompt)
     summary = chain.run(history=formatted_history)
@@ -118,7 +54,7 @@ def agent_retriever_chat_history(question: str) -> str:
     )
     prompt = PromptTemplate(
         input_variables=["history", "question"],
-        template=history_retriever_prompt_template
+        template=prompts.history_retriever_prompt_template
     )
     chain = LLMChain(llm=llm, prompt=prompt)
     summary = chain.run(history=formatted_history, question=question)
@@ -135,7 +71,7 @@ def agent_retriever(question: str) -> str:
 
     prompt = PromptTemplate(
         input_variables=["documents"],
-        template=content_summary_prompt_template
+        template=prompts.content_summary_prompt_template
     )
 
     chain = LLMChain(llm=llm, prompt=prompt)
@@ -153,7 +89,7 @@ def agent_uses_tool(question: str) -> str:
     tool_list_prompt = "\n".join([tool.get_header() for tool in tools])
     prompt = PromptTemplate(
         input_variables=["tools", "question"],
-        template=tool_usage_prompt_template
+        template=prompts.tool_usage_prompt_template
     )
     chain = LLMChain(llm=llm, prompt=prompt)
     tool_usage_response = chain.run(tools=tool_list_prompt, question=question)
@@ -179,7 +115,7 @@ def agent_uses_tool(question: str) -> str:
 def generate_final_response(question: str, context: str, history_summary: str, tool_response: str) -> str:
     prompt = PromptTemplate(
         input_variables=["context", "chat_history", "tool_response", "question"],
-        template=qa_system_prompt_template
+        template=prompts.qa_system_prompt_template
     )
     chain = LLMChain(llm=llm, prompt=prompt)
     response = chain.run(context=context, chat_history=history_summary, tool_response=tool_response, question=question)
@@ -220,16 +156,6 @@ def main_workflow(user_input: str) -> str:
     final_response = generate_final_response(user_input, context, history, tool_response)
 
     update_chat_history({"user": user_input, "assistant": final_response})
-
-
-    formatted_history = "\n".join(
-        [f"Người dùng: {entry['user']}\nToka: {entry['assistant']}" for entry in chat_history]
-    )
-
-    print("-"*30)
-    print(formatted_history)
-    print("-"*30)
-
 
     return final_response
 

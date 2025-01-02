@@ -8,7 +8,7 @@ from transformers import pipeline
 import Features.ChatAI as ca
 import Features.MoviesRecomment as mr
 import Features.AgePredict as ap
-import Agentic_Rag.Agent as ar
+import Agentic_Rag.Agents as ar
 import Features.WindowControl as wc
 import Features.RemoveBackground as rb
 
