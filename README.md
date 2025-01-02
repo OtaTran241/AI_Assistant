@@ -13,8 +13,8 @@
 ## **App features**
 ## Table of features
 
-✅ [Chat bot (Mode 1)](#Chat-bot-Mode-1)  
-✅ [Chat bot (Mode 2)](#Chat-bot-Mode-2)  
+✅ [Mode 1 (ANN)](#Chat-bot-Mode-1)  
+✅ [Mode 2 (Agentic RAG)](#Chat-bot-Mode-2)  
 ✅ [Remove background from image](#Remove-background-from-image)  
 ✅ [Voice control (Speech to text)](#Voice-control-Speech-to-text)  
 ✅ [Movie recommendations](#Movie-recommendations)  
