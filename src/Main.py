@@ -18,7 +18,7 @@ class AIAssistantApp:
         self.CHANNELS = 1           
         self.RATE = 16000           
         self.CHUNK = 1024
-        self.Amode = False
+        self.Amode = True
         self.Qtag = ""   
         self.audio = pyaudio.PyAudio()
         self.recording = False
@@ -66,7 +66,7 @@ class AIAssistantApp:
         self.toggle_state = tk.BooleanVar()
         self.toggle_state.set(False)
 
-        self.toggle_button = tk.Button(self.root, image=self.off, command=self.handle_toggle)
+        self.toggle_button = tk.Button(self.root, image=self.on, command=self.handle_toggle)
         self.toggle_button.place(relx=1.0, x=-10, y=10, anchor='ne')
 
         self.toggle_state.trace_add("write", self.handle_toggle)
