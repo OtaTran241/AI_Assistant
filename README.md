@@ -13,8 +13,8 @@
 ## **App features**
 ## Table of features
 
-✅ [Chat bot (Mode 1)](#Chat-bot-Mode-1)  
-✅ [Chat bot (Mode 2)](#Chat-bot-Mode-2)  
+✅ [Chat bot mode 1 (ANN)](#Chat-bot-mode-1-ANN)  
+✅ [Chat bot mode 2 (Agentic RAG)](#Chat-bot-mode-2-Agentic-RAG)  
 ✅ [Remove background from image](#Remove-background-from-image)  
 ✅ [Voice control (Speech to text)](#Voice-control-Speech-to-text)  
 ✅ [Movie recommendations](#Movie-recommendations)  
@@ -24,17 +24,19 @@
 ✅ [Google custom search](#Google-custom-search)  
 ✅ [Some commands](#Some-commands)  
 
-## Chat bot (Mode 1)
-
-   - This is a system that uses an ANN model to answer specific questions with clear results, while also conveniently utilizing the accompanying functions.  
+## Chat bot mode 1 (ANN)
+   - This mode provides the ability to process and respond quickly.  
+   - This is a system that uses an Artificial Neural Network (ANN) model to answer specific questions with clear results.  
+   - It also conveniently integrates accompanying functionalities.  
      For example: What can you do?, Who are you?, open Notepad, ...
    - Particularly, it can answer medical questions.  
      For example: What to do if my muscle is pulled?, Which medicine to take if I get bleeding?, ...  
 
 <img src="./Image/Chat.png" style="width:400px;"/>
 
-## Chat bot (Mode 2)
-   - This is an Agentic RAG system capable of utilizing various tools and enhancing knowledge based on private data provided in the `datas/Rag_datas` folder, following the workflow below:
+## Chat bot mode 2 (Agentic RAG)
+   - This mode provides the capability to handle and respond to various types of requests with extensive knowledge across different fields.
+   - This is a Agentic RAG system capable of utilizing various tools and enhancing knowledge based on private data provided in the `datas/Rag_datas` folder, following the workflow below:
 
 <img src="./Image/WL.png" style="width:900px;"/>
 
