@@ -2,7 +2,7 @@
 
 ## **Description**
 
-   - This application is a chatbot developed by Trần Đức Thuận.  
+   - This application is a chatbot developed by OtaTran.  
    - You can interact with the application both by voice and through the chatbox.  
    - The supported languages are English and Vietnamese.  
    - Since this is a personal project, many other interesting features will be updated in the future. Thank you for following the project.
