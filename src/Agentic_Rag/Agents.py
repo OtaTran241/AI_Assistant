@@ -18,8 +18,8 @@ from config import llm_history_chat_limit
 
 load_dotenv()
 
-embedding_model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-mpnet-base-v2")
-faiss_db = FAISS.load_local("datas/Rag_datas/Vector_db", embedding_model, allow_dangerous_deserialization=True)
+embedding_model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+faiss_db = FAISS.load_local("datas/RAG_datas/Vector_db", embedding_model, allow_dangerous_deserialization=True)
 
 os.environ["GOOGLE_API_KEY"] = os.getenv("Google_API_Key")
 
