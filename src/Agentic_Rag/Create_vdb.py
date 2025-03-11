@@ -7,17 +7,18 @@ import torch
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 print(device)
-# embedding_model = HuggingFaceEmbeddings(
-#     model_name="vinai/phobert-large",
-#     model_kwargs={"device": device}
-# )
 
-embedding_model = HuggingFaceEmbeddings(
-    model_name="sentence-transformers/all-MiniLM-L6-v2",
+embedding_model_bge = HuggingFaceEmbeddings(
+    model_name="BAAI/bge-m3",
     model_kwargs={"device": device}
 )
 
-def create_db_from_files(data_folder):
+# embedding_model_halong = HuggingFaceEmbeddings(
+#     model_name="hiieu/halong_embedding",
+#     model_kwargs={"device": device}
+# )
+
+def create_db_from_files(data_folder, embedding_model, save_path):
     loaders = [
         DirectoryLoader(data_folder, glob="*.txt", loader_cls=TextLoader),
         DirectoryLoader(data_folder, glob="*.pdf", loader_cls=PyPDFLoader),
@@ -28,15 +29,25 @@ def create_db_from_files(data_folder):
     documents = []
     for loader in loaders:
         documents.extend(loader.load())
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=512, chunk_overlap=100)
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=512, chunk_overlap=51)
     docs = text_splitter.split_documents(documents)
 
-    print(len(documents))
-    print(len(docs))
+    print(f"Original documents: {len(documents)}")
+    print(f"Split documents: {len(docs)}")
 
-    db = FAISS.from_documents(documents=docs, embedding=embedding_model)
+    if not docs:
+        print("Không có tài liệu nào sau khi chia nhỏ. Kiểm tra lại dữ liệu đầu vào!")
+        return None
 
-    db.save_local(f"{data_folder}/Vector_db")
+    db = FAISS.from_documents(docs, embedding_model)
+
+    db.save_local(f"{data_folder}/{save_path}")
+    print(f"FAISS database saved to {data_folder}/{save_path}")
+
     return db
 
-create_db_from_files("datas/RAG_datas")
+faiss_bge_path = "Vector_db/bge"
+# faiss_halong_path = "Vector_db/halong"
+
+db_bge = create_db_from_files("datas/RAG_datas", embedding_model_bge, faiss_bge_path)
+# db_halong = create_db_from_files("datas/RAG_datas", embedding_model_halong, faiss_halong_path)

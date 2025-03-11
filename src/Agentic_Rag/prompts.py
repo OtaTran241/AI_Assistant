@@ -43,6 +43,12 @@ tool_usage_prompt_template = """
     - "Tính diện tích với cao 20 và dài 30" -> {{"tool_name": "calculate_area", "arguments": {{"width": 30, "height": 20}}}}
     - "Bạn khỏe không?" -> {{}}
 
+    Lưu ý nếu tên bị sai hoặc thiếu một ít bạn có thể sửa hoặc hoàn thiện, Ví dụ:
+    - "Mở notpad" -> {{"tool_name": "open_tool", "arguments": {{"appname": "notepad"}}}}
+    - "Mở giúp tôi noteepad" -> {{"tool_name": "open_tool", "arguments": {{"appname": "notepad"}}}}
+    - "Tìm kiếm modol tranformer" -> {{"tool_name": "google_tool", "arguments": {{"query": "model transformer"}}}}
+
+
     Câu hỏi của user: {question}
     Trả lời:
 """

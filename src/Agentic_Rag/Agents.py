@@ -3,6 +3,7 @@ import os
 import json
 import re
 import threading
+import numpy as np
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
 from langchain.vectorstores import FAISS
@@ -15,11 +16,21 @@ import Agentic_Rag.prompts as prompts
 from dotenv import load_dotenv
 from config import llm_history_chat_limit
 
-
 load_dotenv()
 
-embedding_model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
-faiss_db = FAISS.load_local("datas/RAG_datas/Vector_db", embedding_model, allow_dangerous_deserialization=True)
+embedding_model_bge = HuggingFaceEmbeddings(model_name="BAAI/bge-m3")
+
+# embedding_model_halong = HuggingFaceEmbeddings(model_name="hiieu/halong_embedding")
+
+faiss_bge_path = "datas/RAG_datas/Vector_db/bge"
+# faiss_halong_path = "datas/RAG_datas/Vector_db/halong"
+
+try:
+    db_bge = FAISS.load_local(faiss_bge_path, embedding_model_bge, allow_dangerous_deserialization=True)
+    # db_halong = FAISS.load_local(faiss_halong_path, embedding_model_halong, allow_dangerous_deserialization=True)
+    print(f"FAISS database loaded from {faiss_bge_path}")
+except Exception as e:
+    print(f"{e}")
 
 os.environ["GOOGLE_API_KEY"] = os.getenv("Google_API_Key")
 
@@ -61,10 +72,10 @@ def agent_retriever_chat_history(question: str) -> str:
     return summary.strip()
 
 def agent_retriever(question: str) -> str:
-    if not faiss_db:
+    if not db_bge:
         return ""
 
-    retriever = faiss_db.as_retriever(search_kwargs={"k": 5})
+    retriever = db_bge.as_retriever(search_kwargs={"k": 5})
     context_documents = retriever.get_relevant_documents(question)
 
     aggregated_content = "\n".join([f"- {doc.page_content}" for doc in context_documents])

@@ -97,7 +97,7 @@ class AIAssistantApp:
         self.entry.bind("<Return>", self.handle_input)
 
         self.send_button = tk.Button(self.root, text="Send", anchor=tk.CENTER, command=self.handle_input, state=tk.DISABLED, bg="green")
-        self.send_button.pack(in_=self.entry_frame, side=tk.LEFT, padx=(5, 10), pady=(5, 5))
+        self.send_button.pack(in_=self.entry_frame, side=tk.LEFT, padx=(5, 10), pady=(5, 5), fill=tk.BOTH, expand=True)
 
         self.entry.bind("<KeyRelease>", lambda event: self.check_send_button_state())
 
@@ -214,7 +214,7 @@ class AIAssistantApp:
             return
         else:
             if key == None:
-                self.add_text("Bot: I'm thinking, please bear with me and wait a moment...", "bot")
+                self.add_text("Bot: I'm thinking, please bear with me and wait a momment...", "bot")
                 self.entry.config(state=tk.DISABLED)
                 self.send_button.config(state=tk.DISABLED)
                 threading.Thread(target=self.get_chatbot_response, args=(input_text, stage,)).start()
